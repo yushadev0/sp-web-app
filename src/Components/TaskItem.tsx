@@ -21,7 +21,7 @@ function isOverdue(task: Task) {
 }
 
 const iconButton =
-  'rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-indigo-600'
+  'rounded-lg p-1.5 text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-indigo-600'
 
 export default function TaskItem({ task, onToggle, onUpdate, onDelete }: TaskItemProps) {
   const [mode, setMode] = useState<'view' | 'edit' | 'confirm-delete'>('view')
