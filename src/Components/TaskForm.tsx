@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useId, useState, type FormEvent } from 'react'
 import { PRIORITY_LABELS, type Priority, type TaskInput } from '../Interfaces/Task'
 
 interface TaskFormProps {
@@ -21,8 +21,7 @@ export default function TaskForm({
 }: TaskFormProps) {
   const [values, setValues] = useState<TaskInput>(initialValues)
   const [error, setError] = useState('')
-  // Aynı sayfada birden fazla form olabileceği için id'ler benzersiz olmalı
-  const idPrefix = onCancel ? 'edit' : 'new'
+  const idPrefix = useId()
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()

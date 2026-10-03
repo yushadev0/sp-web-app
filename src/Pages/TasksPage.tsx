@@ -3,7 +3,7 @@ import TaskList from '../Components/TaskList'
 import { useTasks } from '../hooks/useTasks'
 
 export default function TasksPage() {
-  const { tasks, addTask, toggleTask } = useTasks()
+  const { tasks, addTask, updateTask, toggleTask, deleteTask } = useTasks()
 
   return (
     <div className="grid gap-6 lg:grid-cols-[340px_1fr] lg:items-start">
@@ -17,6 +17,8 @@ export default function TasksPage() {
         <TaskList
           tasks={tasks}
           onToggle={toggleTask}
+          onUpdate={updateTask}
+          onDelete={deleteTask}
           emptyMessage="Henüz görev yok. Formdan ilk görevinizi ekleyin."
         />
       </section>

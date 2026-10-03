@@ -1,13 +1,15 @@
-import type { Task } from '../Interfaces/Task'
+import type { Task, TaskInput } from '../Interfaces/Task'
 import TaskItem from './TaskItem'
 
 interface TaskListProps {
   tasks: Task[]
   onToggle: (id: string) => void
+  onUpdate: (id: string, input: TaskInput) => void
+  onDelete: (id: string) => void
   emptyMessage: string
 }
 
-export default function TaskList({ tasks, onToggle, emptyMessage }: TaskListProps) {
+export default function TaskList({ tasks, onToggle, onUpdate, onDelete, emptyMessage }: TaskListProps) {
   if (tasks.length === 0) {
     return (
       <div className="rounded-xl border-2 border-dashed border-slate-200 px-6 py-12 text-center">
@@ -19,7 +21,7 @@ export default function TaskList({ tasks, onToggle, emptyMessage }: TaskListProp
   return (
     <ul className="space-y-3">
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} onToggle={onToggle} />
+        <TaskItem key={task.id} task={task} onToggle={onToggle} onUpdate={onUpdate} onDelete={onDelete} />
       ))}
     </ul>
   )
